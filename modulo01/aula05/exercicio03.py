@@ -31,4 +31,4 @@ try:
             if contador==limite:
                 print('\nBLOQUADO PELO SISTEMA!!! TENTE NOVAMENTE MAIS TARDE!!!\n')
 except:
-    print('z')
+    print('Insira algo Valido.')
