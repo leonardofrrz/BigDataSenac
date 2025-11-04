@@ -33,7 +33,7 @@ try:
         print('Não é um triângulo válido.')
 except ValueError:
     print('Por favor, insra um número.')
-'''
+
 # ------------------------------------------------------------------------------
 # 2. ADIVINHE O NÚMERO
 # TEMA PRINCIPAL: Repetição (FOR) e Decisão (BREAK)
@@ -50,8 +50,21 @@ TENTATIVAS_MAX = 5
 
 # [ESPAÇO PARA O CÓDIGO]
 
+for i in range(TENTATIVAS_MAX):
+    tentativa=input('Digite um número para descobrir se é o secreto: ')
+    try:
+        tentativa = int(tentativa)
+        if tentativa < NUMERO_SECRETO:
+            print(f'É um número maior... Tentativa {i+1}/{TENTATIVAS_MAX}')
+        elif tentativa > NUMERO_SECRETO:
+            print(f'É um número menor... Tentativa {i+1}/{TENTATIVAS_MAX}')
+        else:
+            print(f'BOAAAAA, ACERTOU O NÚMERO SECRETO COM {i+1} TENTATIVAS!!!!')
+            break
+    except ValueError:
+        print('Por favor, insira um número válido.')
 
-'''# ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # 3. MENU DE OPÇÕES SIMPLES
 # TEMA PRINCIPAL: Decisão (MATCH/CASE)
 # LÓGICA: Mapear a escolha numérica do usuário para uma ação específica.
