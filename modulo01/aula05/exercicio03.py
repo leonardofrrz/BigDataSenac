@@ -9,26 +9,22 @@
 # restantes.
 # ● Se as tentativas acabarem, imprima uma mensagem de bloqueio
 
-contador=3
+tentativas=3
 limite=0
 usuario='admin'
 senha='admin'
 
 try:
-    while contador > limite:
+    while tentativas > limite:
         insertUser=input('Usuario: ')
-        if insertUser == usuario:
-            insertPass=input('Senha: ')
-            if insertPass == senha:
+        insertPass=input('Senha: ')
+        if insertUser == usuario and insertPass == senha:
                 print('Sucesso')
                 break
-            else:
-                contador = contador-1
-                print(f'Senha incorreta. {contador}/3 tentativas restantes.')
         else:
-            contador = contador-1
-            print(f'Usuario incorreto. {contador}/3 tentativas restantes.')
-            if contador==limite:
-                print('\nBLOQUADO PELO SISTEMA!!! TENTE NOVAMENTE MAIS TARDE!!!\n')
+            tentativas = tentativas-1
+            print(f'Incorreto. {tentativas}/3 tentativas restantes.')
+        if tentativas==limite:
+            print('\nBLOQUADO PELO SISTEMA!!! TENTE NOVAMENTE MAIS TARDE!!!\n')
 except:
     print('Insira algo Valido.')
