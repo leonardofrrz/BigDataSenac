@@ -16,38 +16,39 @@ def calcular_multa(pesoTotal):
     Calcula a multa baseada no peso de peixes pescados.
     """
     LIMITE_PESO = 100  # quilos
-    VALOR_MULTA_POR_QUILO = 4.00  # reais
+    VALOR_MULTA_QUILO = 4.00  # reais
     
     if pesoTotal > LIMITE_PESO:
         excedente = pesoTotal - LIMITE_PESO
-        multa = excedente * VALOR_MULTA_POR_QUILO
+        multa = excedente * VALOR_MULTA_QUILO
         return multa
     else:
-        return 0.0
+        return(0.0)
 
 
-def main():
-    """Função principal do programa de controle de pesca."""
-    print("=" * 50)
+def funcao_mae():
+    """
+    Função principal do programa de controle de pesca.
+    """
+    print("=" * 40)
     print("SISTEMA DE CONTROLE DE PESCA")
-    print("=" * 50)
-    print(f"Limite permitido: 100 kg")
-    print(f"Multa por excedente: R$ 4,00/kg")
-    print("=" * 50)
-    print()
+    print("=" * 40)
+    print("Limite permitido: 100 kg")
+    print("Multa por excedente: R$ 4,00/kg")
+    print("=" * 40)
     
     total_multas = 0.0
     numero_pescaria = 0
     
     while True:
         try:
-            peso = float(input("Digite o peso de peixes pescados (0 para sair): "))
+            peso = float(input("Digite o peso de peixes pescados (DIGITE sair PARA SAIR): "))
             
-            # Condição de parada
-            if peso == 0:
+            # parada
+            if peso == 'sair':
                 break
             
-            # Validação de peso negativo
+            # peso negativo
             if peso < 0:
                 print("Erro: O peso não pode ser negativo!\n")
                 continue
@@ -55,10 +56,10 @@ def main():
             numero_pescaria += 1
             print(f"\n--- Pescaria #{numero_pescaria} ---")
             
-            # Calcula a multa
+            # multa
             multa = calcular_multa(peso)
             
-            # Exibe o resultado
+            # resultado
             if multa > 0:
                 excedente = peso - 100
                 print(f"Peso pescado: {peso:.2f} kg")
@@ -72,22 +73,20 @@ def main():
             print()
             
         except ValueError:
-            print("❌ Erro: Digite um número válido!\n")
+            print("Erro: Digite um número válido!\n")
     
     # Exibe o resumo final
-    print("=" * 50)
+    print("=" * 40)
     print("RESUMO DA SEMANA")
-    print("=" * 50)
+    print("=" * 40)
     print(f"Total de pescarias registradas: {numero_pescaria}")
-    print(f"Total de multas acumuladas: R$ {total_multas:.2f}")
-    print("=" * 50)
+    print(f"Total de multas acumuladas: R$ {total_multas}")
+    print("=" * 40)
     
     if total_multas > 0:
-        print(f"\nVocê deve pagar R$ {total_multas:.2f} em multas.")
+        print(f"\nVocê deve pagar R$ {total_multas} em multas.")
     else:
         print("\nParabéns! Nenhuma multa foi aplicada.")
 
-
-# Executa o programa
-if __name__ == "__main__":
-    main()
+# roda o programa
+    funcao_mae()
