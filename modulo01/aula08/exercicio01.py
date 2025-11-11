@@ -42,10 +42,10 @@ def funcao_mae():
     
     while True:
         try:
-            peso = float(input("Digite o peso de peixes pescados (DIGITE sair PARA SAIR): "))
+            peso = float(input("Digite o peso de peixes pescados (DIGITE 0 PARA SAIR): "))
             
             # parada
-            if peso == 'sair':
+            if peso == 0:
                 break
             
             # peso negativo
